@@ -1,0 +1,31 @@
+\chapter{Methodology}
+
+\[s=m-Nx\]
+    
+\begin{equation}
+\begin{split}
+    \xi(x) &=  \sum_{i=1}^{n}{s_i^2} \\
+&= x^T N^T N x - 2 m^T Nx + m^T m \\
+&= x^T R x - 2 p^T x + \mu
+\end{split}
+\end{equation}
+
+
+\[\xi'(x) = 2Rx - 2p\]
+In order to find the minimum signal energy, its derivative should be set to 0. 
+\begin{equation}
+\begin{split}
+     \xi'(x) &= 0 \\
+    2Rx-2p &= 0 \\
+    Rx-p &= 0
+\end{split}
+\end{equation}
+
+Batching delays was considered. This did not work. Might be due to not perfect orthogonal. But it was not feasible for multiple delays anyway since if \(\vec{x1}\) and \(\vec{x2}\) had a delay, find \(\vec{x1}\) and setting \(\vec{x2}\) to zero would not work (since \(\vec{x2}\) was not zero).
+
+\section{ECA}
+\begin{equation}
+    x = R^{-1}p
+\end{equation}
+
+\section{CGLS}

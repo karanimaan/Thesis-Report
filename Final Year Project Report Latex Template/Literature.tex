@@ -1,0 +1,25 @@
+\chapter{Literature Review}
+
+\section{Least Mean Squares}
+
+\[s=m-Nx\]
+Determine $x$ that minimizes the cost function \(\sum{s_i^2}\) .
+
+
+\section{ECA}
+
+Uses analytical solution.
+\[x=R^{-1}p\], where $R=N^TN$ and $p=N^Tm$.
+
+\section{CGLS}
+Uses gradient descent to to solve 
+\[Rx=p\]
+. Gradient descent iteratively updates $x$ using 
+\[x_{i+1} = x_i + \alpha_i r_i\], where $\alpha$ is the step size and $r$ is the residual (negative gradient).
+
+CGLS uses \[x_{i+1} = x_i + \alpha_i d_i\], where $\alpha$ is the step size and $d$ is the conjugate (R-orthogonal) direction. This is in the direction of the eigenvectors of $R$.
+
+
+A disadvantage of CGLS is that it has limited parallelism, since it as iterative operation; therefore, speed-up potential is limited \cite{Hicks}. Iterative methods like CG are suited for use with sparse matrices. "If $A$ is dense, your best course of action is probably to factor $A$ and solve the equation by backsubstitution." \cite{Painless-CG}.
+
+ 
